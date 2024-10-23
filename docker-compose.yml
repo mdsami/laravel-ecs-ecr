@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: larvel-app
     container_name: app
     restart: unless-stopped
     environment:
@@ -20,7 +19,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_Nginx
-    image: larvel-nginx 
     container_name: webserver 
     restart: unless-stopped
     ports:
@@ -32,7 +30,7 @@ services:
       - app  
 
   db:
-    image: mysql:5.7.22
+    image: mysql:8.0
     container_name: db
     environment:
       MYSQL_DATABASE: laravel
